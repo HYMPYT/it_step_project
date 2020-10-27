@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Local
-    path('', include('core.urls'))
+    path('it_step/', include('core.urls'))
 ]
