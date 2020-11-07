@@ -1,10 +1,24 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Post
+
+
+class Card:
+    def __init__(self, title: str, body: str):
+        self.title = title
+        self.body = body
+
+    def __str__(self):
+        return self.title
 
 def home(request, *args, **kwars) -> HttpResponse:
     """Home view"""
-    # TODO Resume from here
-    return HttpResponse('<h1 style="color: green; font-size: 70px; text-align: center">Home page</h1>')
 
-def about(request, *args, **kwars) -> HttpResponse:
-    """About view"""
-    return HttpResponse('<h1 style="color: green; font-size: 70px; text-align: center">About page</h1>')
+    
+
+    ctx = {
+        'cards': Post.objects.all()
+    }
+
+    return render(request, 'core/index.html', context=ctx)
