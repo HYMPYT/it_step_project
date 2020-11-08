@@ -14,12 +14,17 @@
 
 <body>
     <div class="header">
-        <h1 class="header__title"><a class="nav_link" href="#home">IT Step Project</a></h1>
-        <h2 class="header__about"><a class="nav_link" href="#about">About</a></h2>
+        <div class="header__left">
+            <h1 class="header__title"><a class="nav_link" href="#home">IT Step Project</a></h1>
+            <h2 class="header__about"><a class="nav_link" href="#about">About</a></h2>
+        </div>
+        <div>
+            <h3 class="header__user">Hello, {{ user }}</h3>
+        </div>
     </div>
     <div class="menu">
         <div class="menu__top">
-            <img class="menu__img" src="{{user.profile.avatar.image.url}}" alt="">
+            <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
             <div class="menu__name">Yevhen Levchuk</div>
             <ul class="menu__links">
                 <a href="./friends.html">

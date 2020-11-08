@@ -1,19 +1,19 @@
 {% extends '_base.html' %}
 
 {% block content %}
-{% for card in cards %}
-<div class="content__card">
-    <div class="content__card_top">
-        <img class="content__card_img" src="{{card.image.image.url}}" alt="">
-        <h2 class="content__card_title">{{card.title}}</h2>
-        <p class="content__card_text">{{card.body}}</p>
+{% for post in posts %}
+<div class="card">
+    <img src="{{ post.image.image.url }}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title}}</h5>
+        <p class="card-text">{{ post.body }}</p>
     </div>
-    <div class="content__card_bottom">
-        <div class="content__card_buttons">
-            <button class="content__card_like"></button>
-            <button class="content__card_comment"></button>
+    <div class="action">
+        <div class="action__buttons">
+            <button class="card__action_like" title="Like"></button>
+            <button class="card__action_comment" title="Comment"></button>
         </div>
-        <div class="content__card_owner">asdasdasd</div>
+        <div>@Owner</div>
     </div>
 </div>
 {% endfor %}

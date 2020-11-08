@@ -1,31 +1,23 @@
 /* CONTENT */
-.content__card {
-  border-radius: 10%;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 350px;
-  width: 400px;
-  margin: 40px 80px 40px 80px;
+.card {
+  padding: 20px;
+  margin: 0 5%;
+  margin-bottom: 50px;
+  width: 40%;
+  border-radius: 25px;
 }
 
-.content__card_img {
-  width: 300px;
-  height: 150px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+.card-body {
+  padding: 16px 0px;
 }
 
-.content__card_bottom {
-  margin-bottom: 15px;
+
+.action {
   display: flex;
   justify-content: space-between;
-  width: 300px;
 }
 
-.content__card_like {
+.card__action_like {
   width: 0;
   height: 0;
   border-style: solid;
@@ -35,7 +27,7 @@
   margin-right: 10px;
 }
 
-.content__card_comment {
+.card__action_comment {
   height: 25px;
   width: 25px;
   border-radius: 50%;

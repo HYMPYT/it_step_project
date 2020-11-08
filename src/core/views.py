@@ -18,7 +18,7 @@ def home(request, *args, **kwars) -> HttpResponse:
     
 
     ctx = {
-        'cards': Post.objects.all()
+        'posts': Post.objects.all()
     }
 
     return render(request, 'core/index.html', context=ctx)
