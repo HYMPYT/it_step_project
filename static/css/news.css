@@ -11,6 +11,11 @@
   padding: 16px 0px;
 }
 
+.card-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .action {
   display: flex;
