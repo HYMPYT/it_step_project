@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+
+<style>
+    .login_form {
+        margin-left: 20px;
+        display: inline-block;
+    }
+
+    .login_form__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .link {
+        color: black;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <h1>This is login page</h1>
+
+    <div class="login_form">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="login_form__buttons">
+                <button type="button"><a class="link" href="{% url 'signup' %}">Signup</a></button>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

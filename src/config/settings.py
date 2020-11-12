@@ -86,6 +86,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'users.User'
 
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_REDIRECT_URL = 'login'
+
 # Internationalization
 
 LANGUAGE_CODE = 'en-us'

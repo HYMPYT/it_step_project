@@ -143,5 +143,5 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
-  padding: 100px;
+  padding: 50px 100px;
 }
