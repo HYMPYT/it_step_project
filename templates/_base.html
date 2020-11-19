@@ -13,46 +13,25 @@
 </head>
 
 <body>
-    {% if user.is_authenticated %}
     <div class="header">
         <div class="header__left">
             <h1 class="header__title"><a class="nav_link" href="{% url 'core:home' %}">IT Step Project</a></h1>
             <h2 class="header__about"><a class="nav_link" href="#about">About</a></h2>
         </div>
-        <div>
+        {% if user.is_authenticated %}
             <h3 class="header__user">Hello, {{ user }}</h3>
-        </div>
+        {% else %}
+            <div class="header__authentication">
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'users:signup' %}">Signup</a>
+            </div>
+        {% endif %}
     </div>
-    <div class="menu">
-        <div class="menu__top">
-            <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
-            <div class="menu__name">{{ user.first_name}} {{ user.last_name }}</div>
-            <ul class="menu__links">
-                <a href="#">
-                    <li class="menu__link">Friends</li>
-                </a>
-                <a href="{% url 'core:my_posts' %}">
-                    <li class="menu__link">Posts</li>
-                </a>
-                <a href="{% url 'core:home' %}">
-                    <li class="menu__link">News</li>
-                </a>
-            </ul>
-        </div>
-        <ul class="menu__bottom">
-            <a href="">
-                <li class="menu__bottom_item">Settings</li>
-            </a>
-            <a href="{% url 'logout' %}">
-                <li class="menu__bottom_item">Logout</li>
-            </a>
-        </ul>
-    </div>
-
-    <div class="content">
-        {% block content %}
-        {% endblock content %}
-    </div>
+    {% if user.is_authenticated %}
+        {% block content %}{% endblock content %}
+    {% else %}
+        {% block not_auth_content %}{% endblock not_auth_content %}
+    {% endif %}
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -63,12 +42,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-    {% else %}
-        <h1>U'r not logged in</h1>
-        <h1>Please go the <a href="{% url 'login' %}">login page</a></h1>
-
-    {% endif %}
 </body>
 
 </html>

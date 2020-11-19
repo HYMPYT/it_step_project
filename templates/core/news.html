@@ -1,6 +1,34 @@
 {% extends '_base.html' %}
 
 {% block content %}
+
+<div class="menu">
+    <div class="menu__top">
+        <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
+        <div class="menu__name">{{ user }}</div>
+        <ul class="menu__links">
+            <a href="#">
+                <li class="menu__link">Friends</li>
+            </a>
+            <a href="{% url 'core:my_posts' %}">
+                <li class="menu__link">Posts</li>
+            </a>
+            <a href="{% url 'core:home' %}">
+                <li class="menu__link">News</li>
+            </a>
+        </ul>
+    </div>
+    <ul class="menu__bottom">
+        <a href="{% url 'users:settings' %}">
+            <li class="menu__bottom_item">Settings</li>
+        </a>
+        <a href="{% url 'logout' %}">
+            <li class="menu__bottom_item">Logout</li>
+        </a>
+    </ul>
+</div>
+
+<div class="content">
 {% for post in object_list %}
 <div class="card">
     <img src="{{ post.image.image.url }}" class="card-img-top">
@@ -13,8 +41,9 @@
             <button class="card__action_like" title="Like"></button>
             <button class="card__action_comment" title="Comment"></button>
         </div>
-        <div>@{{ post.poster }}</div>
+        <div>@{{ post.poster.username }}</div>
     </div>
 </div>
 {% endfor %}
+</div>
 {% endblock content %}

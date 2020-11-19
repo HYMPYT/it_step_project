@@ -1,28 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends '_base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration page</title>
-</head>
 
-<style>
+{% block not_auth_content %}
+
+{% comment %} <style>
     .signup_form {
         margin-left: 20px;
     }
-</style>
+</style> {% endcomment %}
 
-<body>
-    <h1>This is registration page</h1>
-
+<div class="auth_content">
     <div class="signup_form">
         <form action="{% url 'signup' %}" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <!-- {{ form.as_p }} -->
+            {{ form.username.label_tag }}
+            {{ form.username }}
+
+            {{ form.phone_number.label_tag }}
+            {{ form.phone_number }}
+
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
             <button type="submit">Submit</button>
         </form>
     </div>
-</body>
+</div>
 
-</html>
+{% endblock not_auth_content %}
+
+{% block content %}
+<div class="auth_content">
+
+</div>
+{% endblock content %}
