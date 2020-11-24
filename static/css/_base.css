@@ -158,6 +158,31 @@ a:hover {
   padding: 50px 100px;
 }
 
+.user_settings {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(202, 201, 201);
+  overflow: auto;
+  padding: 50px 100px;
+}
+
+.settings_form {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  width: 40%;
+}
+
+#id_first_name, #id_last_name {
+  margin-bottom: 50px;
+}
+
 
 /* LOGIN */
 .auth_content {

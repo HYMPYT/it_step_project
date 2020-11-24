@@ -8,7 +8,9 @@ from .models import Post
 class HomeView(ListView):
     """Home view"""
     template_name = 'core/news.html'
-    queryset = Post.objects.filter(is_active=True)
+
+    def get_queryset(self):
+        return Post.objects.exclude(is_active=False).exclude(poster=self.request.user)
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:

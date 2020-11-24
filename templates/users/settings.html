@@ -1,7 +1,51 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<div class="content">
-    <h1>settings</h1>
+<div class="menu">
+    <div class="menu__top">
+        <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
+        <div class="menu__name">{{ user }}</div>
+        <ul class="menu__links">
+            <a href="#">
+                <li class="menu__link">Friends</li>
+            </a>
+            <a href="{% url 'core:my_posts' %}">
+                <li class="menu__link">Posts</li>
+            </a>
+            <a href="{% url 'core:home' %}">
+                <li class="menu__link">News</li>
+            </a>
+        </ul>
+    </div>
+    <ul class="menu__bottom">
+        <a href="{% url 'users:settings' %}">
+            <li class="menu__bottom_item">Settings</li>
+        </a>
+        <a href="{% url 'logout' %}">
+            <li class="menu__bottom_item">Logout</li>
+        </a>
+    </ul>
 </div>
+
+<div class="user_settings">
+    <form action="{% url 'users:settings' %}" method="post" class="settings_form">
+        {% csrf_token %}
+        
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+
+        <button class="btn btn-dark" type="submit">Save</button>
+    </form>
+
+    <div class="errors">
+    {% if errors %}
+        <span class="badge badge-pill badge-danger">{{ errors }}</span>
+    {% endif %}
+</div>
+</div>
+
+
 {% endblock content %}
