@@ -1,7 +1,9 @@
-from django.views.generic import ListView
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.views.generic import ListView, CreateView
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.template.response import TemplateResponse
 
+from .forms import PostCreationForm
 from .models import Post
 
 
@@ -29,3 +31,17 @@ class PostsView(ListView):
     def get_queryset(self):
         """Returns active posters posts"""
         return Post.objects.filter(is_active=True, poster=self.request.user)
+
+
+class PostCreateView(CreateView):
+    """This view provides post creation by form"""
+    template_name = 'core/post_creation.html'
+    form_class = PostCreationForm
+    model = Post
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(data=request.POST)
+        
+        form.save(user=request.user)
+
+        return redirect('core:my_posts')

@@ -40,3 +40,34 @@
   border: 0;
   background-color: #bbbcbd;
 }
+
+
+
+
+
+.sticky_button {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+}
+
+.position-sticky {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post_create_button {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 20px 40px
+}
+
+.post_create_button a{
+  color: black;
+}

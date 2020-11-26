@@ -1,7 +1,6 @@
 {% extends '_base.html' %}
 
 {% block content %}
-
 <div class="menu">
     <div class="menu__top">
         <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
@@ -28,30 +27,31 @@
     </ul>
 </div>
 
+<div class="post_creation">
+    <form action="{% url 'core:post_creation' %}" method="post" class="post_creation_form">
+        {% csrf_token %}
+        
+        {{ form.image.label_tag }}
+        {{ form.image }}
 
-<div class="sticky_button">
-    <div class="position-sticky">
-        <button class="post_create_button btn btn-info"><a href="{% url 'core:post_creation' %}">+</a></button>
-    </div>
+        {{ form.title.label_tag }}
+        {{ form.title }}
+
+        {{ form.body.label_tag }}
+        {{ form.body }}
+
+        {{ form.is_active.label_tag }}
+        {{ form.is_active }}
+
+        <button class="btn btn-dark" type="submit">Save</button>
+    </form>
+
+    <div class="errors">
+    {% if errors %}
+        <span class="badge badge-pill badge-danger">{{ errors }}</span>
+    {% endif %}
+</div>
 </div>
 
 
-<div class="content">
-{% for post in object_list %}
-<div class="card">
-    <img src="{{ post.image.image.url }}" class="card-img-top">
-    <div class="card-body">
-        <h5 class="card-title">{{ post.title}}</h5>
-        <p class="card-text">{{ post.body }}</p>
-    </div>
-    <div class="action">
-        <div class="action__buttons">
-            <button class="card__action_like" title="Like"></button>
-            <button class="card__action_comment" title="Comment"></button>
-        </div>
-        <div>@{{ post.poster.username }}</div>
-    </div>
-</div>
-{% endfor %}
-</div>
 {% endblock content %}

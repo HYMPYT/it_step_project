@@ -218,3 +218,14 @@ a:hover {
   text-align: center;
   font-size: 22px;
 }
+
+/* POST */
+
+.post_creation {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  background-color: rgb(202, 201, 201);
+}
