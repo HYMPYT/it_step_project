@@ -1,7 +1,6 @@
 {% extends '_base.html' %}
 
 {% block content %}
-
 <div class="menu">
     <div class="menu__top">
         <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
@@ -28,28 +27,11 @@
     </ul>
 </div>
 
-<div class="sticky_button">
-    <div class="position-sticky">
-        <a href="{% url 'core:post_creation' %}"><button class="post_create_button btn btn-info">+</button></a>
-    </div>
-</div>
-
-<div class="content">
-    {% for post in object_list %}
-    <div class="card">
-        <img src="{{ post.image.image.url }}" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">{{ post.title}}</h5>
-            <p class="card-text">{{ post.body }}</p>
-        </div>
-        <div class="action">
-            <div class="action__buttons">
-                <button class="card__action_like" title="Like"></button>
-                <button class="card__action_comment" title="Comment"></button>
-            </div>
-            <div>@{{ post.poster.username }}</div>
+<div class="coming__soon">
+    <div class="coming__soon_wrapper">
+        <div class="coming__soon_content">
+            <h2>Coming soon stay tuned :)</h2>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock content %}

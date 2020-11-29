@@ -26,6 +26,8 @@ class UserSettingsForm(forms.ModelForm):
 
         if not first_name[0].isupper():
             raise forms.ValidationError('First name must contain the first capital letter')
+        elif any(item.isdigit() for item in first_name):
+            raise forms.ValidationError('First name must not contain numbers')
         return first_name
 
     def clean_last_name(self):
@@ -33,5 +35,7 @@ class UserSettingsForm(forms.ModelForm):
 
         if not last_name[0].isupper():
             raise forms.ValidationError('Last name must contain the first capital letter')
+        elif any(item.isdigit() for item in last_name):
+            raise forms.ValidationError('Last name must not contain numbers')
         return last_name
 

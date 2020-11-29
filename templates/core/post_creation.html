@@ -6,7 +6,7 @@
         <img class="menu__img" src="{{ user.profile.avatar.image.url }}" alt="">
         <div class="menu__name">{{ user }}</div>
         <ul class="menu__links">
-            <a href="#">
+            <a href="{% url 'core:my_friends' %}">
                 <li class="menu__link">Friends</li>
             </a>
             <a href="{% url 'core:my_posts' %}">
@@ -27,30 +27,36 @@
     </ul>
 </div>
 
-<div class="post_creation">
-    <form action="{% url 'core:post_creation' %}" method="post" class="post_creation_form">
-        {% csrf_token %}
-        
-        {{ form.image.label_tag }}
-        {{ form.image }}
+<div class="post__creation">
+    <div class="post__creation_form">
+        <form class="post__form" action="{% url 'core:post_creation' %}" method="post" class="post_creation_form">
+            {% csrf_token %}
 
-        {{ form.title.label_tag }}
-        {{ form.title }}
-
-        {{ form.body.label_tag }}
-        {{ form.body }}
-
-        {{ form.is_active.label_tag }}
-        {{ form.is_active }}
-
-        <button class="btn btn-dark" type="submit">Save</button>
-    </form>
+            <table>
+                <tr>
+                    <td>{{ form.image.label_tag }}</td>
+                    <td>{{ form.image }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.title.label_tag }}</td>
+                    <td>{{ form.title }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.body.label_tag }}</td>
+                    <td>{{ form.body }}</td>
+                </tr>
+            </table>
+            <div class="post__creation_btn">
+                <button class="btn btn-success" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
 
     <div class="errors">
-    {% if errors %}
+        {% if errors %}
         <span class="badge badge-pill badge-danger">{{ errors }}</span>
-    {% endif %}
-</div>
+        {% endif %}
+    </div>
 </div>
 
 

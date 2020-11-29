@@ -1,0 +1,24 @@
+.login__form {
+    display: inline-block;
+    width: 35%;
+    padding: 30px;
+    background-color: rgb(100, 202, 227);
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.btn {
+    border-radius: 20px;
+    width: 35%;
+}
+
+.login__text {
+    display: inline-block;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: rgb(100, 202, 227);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    font-size: 22px;
+}

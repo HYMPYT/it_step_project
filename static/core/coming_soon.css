@@ -1,0 +1,36 @@
+.coming__soon {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(202, 201, 201);
+}
+
+.coming__soon_wrapper {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.coming__soon_content {
+    display: inline-block;
+    background-color: rgb(100, 202, 227);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 30px;
+}
+
+.coming__soon_notauth {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(202, 201, 201);
+}

@@ -2,22 +2,35 @@
 
 
 {% block not_auth_content %}
-<div class="auth_content">
-    <div class="login_form">
-        <form action="{% url 'login' %}" method="post">
+<div class="auth__content">
+    <div class="content__form">
+        <form class="login__form" action="{% url 'login' %}" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
 
-            <button type="submit">Login</button>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+            <div class="content__form_btn">
+                <button class="btn btn-success" type="submit">Login</button>
+            </div>
         </form>
     </div>
 </div>
 {% endblock not_auth_content %}
 
 {% block content %}
-<div class="auth_content">
-    <div class="login_text">
-        <h1>Hey {{ user }}, you're logged in</h1>
+<div class="auth__content">
+    <div class="content__form">
+        <div class="login__text">
+            <h1>Hey {{ user }}, you're logged in :)</h1>
+        </div>
     </div>
 </div>
 {% endblock content %}

@@ -8,15 +8,20 @@
     <title>IT Step project</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/_base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/news.css' %}">
+    <link rel="stylesheet" href="{% static '_base.css' %}">
+    <link rel="stylesheet" href="{% static 'registration/login.css' %}">
+    <link rel="stylesheet" href="{% static 'registration/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'core/news.css' %}">
+    <link rel="stylesheet" href="{% static 'core/post_creation.css' %}">
+    <link rel="stylesheet" href="{% static 'core/coming_soon.css' %}">
+    <link rel="stylesheet" href="{% static 'users/settings.css' %}">
 </head>
 
 <body>
     <div class="header">
         <div class="header__left">
             <h1 class="header__title"><a class="nav_link" href="{% url 'core:home' %}">IT Step Project</a></h1>
-            <h2 class="header__about"><a class="nav_link" href="#about">About</a></h2>
+            <h2 class="header__about"><a class="nav_link" href="{% url 'core:about' %}">About</a></h2>
         </div>
         {% if user.is_authenticated %}
             <h3 class="header__user">Hello, {{ user }}</h3>

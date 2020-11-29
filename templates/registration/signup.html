@@ -3,37 +3,33 @@
 
 {% block not_auth_content %}
 
-{% comment %} <style>
-    .signup_form {
-        margin-left: 20px;
-    }
-</style> {% endcomment %}
-
-<div class="auth_content">
-    <div class="signup_form">
-        <form action="{% url 'signup' %}" method="post">
+<div class="auth__content">
+    <div class="content__form">
+        <form class="signup__form" action="{% url 'users:signup' %}" method="post">
             {% csrf_token %}
-            <!-- {{ form.as_p }} -->
-            {{ form.username.label_tag }}
-            {{ form.username }}
-
-            {{ form.phone_number.label_tag }}
-            {{ form.phone_number }}
-
-            {{ form.password1.label_tag }}
-            {{ form.password1 }}
-
-            {{ form.password2.label_tag }}
-            {{ form.password2 }}
-            <button type="submit">Submit</button>
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.phone_number.label_tag }}</td>
+                    <td>{{ form.phone_number }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password1.label_tag }}</td>
+                    <td>{{ form.password1 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password2.label_tag }}</td>
+                    <td>{{ form.password2 }}</td>
+                </tr>
+            </table>
+            <div class="content__form_btn">
+                <button class="btn btn-success" type="submit">SignUp</button>
+            </div>
         </form>
     </div>
 </div>
 
 {% endblock not_auth_content %}
-
-{% block content %}
-<div class="auth_content">
-
-</div>
-{% endblock content %}

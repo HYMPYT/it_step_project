@@ -1,9 +1,10 @@
-from django import forms
+from django.forms import ModelForm
 
 from .models import Post
+from common.models import Photo
 
 
-class PostCreationForm(forms.ModelForm):
+class PostCreationForm(ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'body', 'image')
@@ -14,6 +15,6 @@ class PostCreationForm(forms.ModelForm):
         print(self.data)
 
         if self.data.get('image'):
-            post.image = self.data.get('image')
+            post.image = Photo.objects.get(pk=self.data.get('image'))
 
         post.save()

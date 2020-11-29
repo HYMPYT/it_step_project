@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, TemplateView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.template.response import TemplateResponse
@@ -45,3 +45,13 @@ class PostCreateView(CreateView):
         form.save(user=request.user)
 
         return redirect('core:my_posts')
+
+class FriendsView(TemplateView):
+    """Friends view"""
+    template_name = 'core/friends.html'
+
+class AboutView(TemplateView):
+    """About view"""
+    template_name = 'core/about.html'
+
+
