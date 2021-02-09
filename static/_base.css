@@ -177,6 +177,8 @@ a:hover {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+  min-width: 30%;
+  max-width: 30%;
 }
 
 .content__form_btn {
